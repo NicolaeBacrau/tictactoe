@@ -2,9 +2,35 @@
 	<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Tic Tac Toe Tool</title>
 		<link rel="stylesheet" type="text/css" href="./css/styles.css">
-	<script language="JavaScript">
-
-	</script></head>
+<script language="JavaScript">
+	
+	var turn = 1; // 1-- x's turn. 2-- 0's turn.
+	
+	function clicked(incoming){
+		id_clicked = incoming.id;
+		img1=document.images[id_clicked].src.substring( document.images[id_clicked].src.lastIndexOf( "/" ) + 1 );
+		if(img1=="empty_square.png"){
+			if (turn ==1){
+				strike("x",id_clicked);
+				turn = 2;
+			}
+			else{
+				strike("0",id_clicked);
+				turn = 1;
+			}
+		}	
+	}
+	
+	function strike(who,id_clicked){
+		if(who =="x")
+			img="x.png"
+		else
+			img="0.png"
+		document.images[id_clicked].src = img;
+		var audio = new Audio('ding.mp3');
+		audio.play();
+	}
+</script></head>
 		
 	<body bgcolor="yellow">
 
@@ -12,51 +38,51 @@
 	<tbody><tr>
 	<td>
 	
-	<table cellspacing="0" cellpadding="0">
+	<table cellspacing="0" cellpadding="0" border=1>
 		<!-- Row 8 -->
 		<tbody><tr>
-			<td id="square1" class="square">
-				<img id="" class="square">	
+			<td id="square1" class="square" onclick="clicked(this)">
+				<img id="square1" class="square" src="img/empty_square.png">	
 			</td>
 			
-			<td id="square2" class="square">
-				<img id="" class="square">	
+			<td id="square2" class="square" onclick="clicked(this)">
+				<img id="square2" class="square" src="img/empty_square.png">	
 			</td>
 			
-			<td id="square3" class="square">
-				<img id="" class="square">	
+			<td id="square3" class="square" onclick="clicked(this)">
+				<img id="square3" class="square" src="img/empty_square.png">	
 			</td>
 		</tr>
 
 		<tr>	
-			<td id="square4" class="square">
-				<img id=""class="square">	
+			<td id="square4" class="square" onclick="clicked(this)">
+				<img id="square4" class="square" src="img/empty_square.png">	
 			</td>
 			
-			<td id="square5" class="square">
-				<img id="" class="square">	
+			<td id="square5" class="square" onclick="clicked(this)">
+				<img id="square5" class="square" src="img/empty_square.png">	
 			</td>
 			
-			<td id="square6" class="square">
-				<img id="" class="square">	
+			<td id="square6" class="square" onclick="clicked(this)">
+				<img id="square6" class="square" src="img/empty_square.png">	
 			</td>
 		</tr>
 
 		<tr>
-			<td id="square7" class="square">
-				<img id="" class="square">	
+			<td id="square7" class="square" onclick="clicked(this)">
+				<img id="square7" class="square" src="img/empty_square.png">	
 			</td>
 			
-			<td id="square8" class="square">
-				<img id="" class="square">	
+			<td id="square8" class="square" onclick="clicked(this)">
+				<img id="square8" class="square" src="img/empty_square.png">	
 			</td>
 			
-			<td id="square9" class="square">
-				<img id="" class="square">	
+			<td id="square9" class="square" onclick="clicked(this)">
+				<img id="square9" class="square" src="img/empty_square.png">	
 			</td>
 		</tr>
 	</tbody></table>
 
 <br><br><hr>
-Nicolae Bacrau Tic Tac Toe Tool
+<font face="Brush Script MT" color="blue" size="20">Nicolae Bacrau Tic Tac Toe Tool</font>
 </body></html>
