@@ -62,9 +62,13 @@
 		if (endOfGame == 1){
 			if (turn == 1){
 				document.images["won"].src="xwon.png"
+				document.images["newgame"].src="newgame.png"
 			}else{
 				document.images["won"].src="0won.png"
+				document.images["newgame"].src="newgame.png"
 			}
+			var audio = new Audio('won.mp3');
+			audio.play();
 			return true;
 		}
 	}
@@ -118,7 +122,10 @@
 		}
 		board[i][j] = who;
 	}
-	
+
+	function new_game(){
+		location.reload();
+	}	
 	function strike(who,id_clicked){
 		if(who =="x")
 			img="x.png"
@@ -140,13 +147,11 @@
 		board[2][1] = 0;
 		board[2][2] = 0;
 	}
+
 </script></head>
 		
 	<body bgcolor="#FFF200">
 
-	<table>
-	<tbody><tr>
-	<td>
 	<table>
 	<tr><td>
 	<table cellspacing="0" cellpadding="0" border=1>
@@ -193,7 +198,10 @@
 			</td>
 		</tr>
 	</tbody></table>
-	</td><td><img id="won"></td></tr>
+	</td>
+	<td><img id="won"></td>
+	<td id="newgame" onclick="new_game(this)"><img id="newgame"></td>
+	</tr>
 	<table>
 
 <br><br><hr>
